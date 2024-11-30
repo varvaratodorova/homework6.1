@@ -1,0 +1,219 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введіть кількість працівників: ");
+        int count = int.Parse(Console.ReadLine());
+        double[] salaries = new double[count];
+        double total = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            Console.Write($"Введіть зарплату працівника {i + 1}: ");
+            salaries[i] = double.Parse(Console.ReadLine());
+            total += salaries[i];
+        }
+
+        double average = total / count;
+        Console.WriteLine($"Середній заробіток: {average:F2}");
+    }
+}
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введіть кількість рядків графіка: ");
+        int rows = int.Parse(Console.ReadLine());
+
+        for (int i = 1; i <= rows; i++)
+        {
+            Console.WriteLine(new string('*', i));
+        }
+    }
+}
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введіть межу: ");
+        int limit = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Прості числа:");
+        for (int i = 2; i <= limit; i++)
+        {
+            if (IsPrime(i))
+                Console.Write(i + " ");
+        }
+    }
+
+    static bool IsPrime(int number)
+    {
+        if (number < 2) return false;
+        for (int i = 2; i <= Math.Sqrt(number); i++)
+        {
+            if (number % i == 0) return false;
+        }
+        return true;
+    }
+}
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введіть пароль: ");
+        string password = Console.ReadLine();
+
+        if (IsValidPassword(password))
+        {
+            Console.WriteLine("Пароль прийнятний.");
+        }
+        else
+        {
+            Console.WriteLine("Пароль не відповідає вимогам.");
+        }
+    }
+
+    static bool IsValidPassword(string password)
+    {
+        if (password.Length < 8)
+        {
+            return false;
+        }
+
+        bool hasDigit = false;
+        bool hasSpecialChar = false;
+
+        foreach (char c in password)
+        {
+            if (char.IsDigit(c))
+            {
+                hasDigit = true;
+            }
+            else if (!char.IsLetterOrDigit(c))
+            {
+                hasSpecialChar = true;
+            }
+
+            if (hasDigit && hasSpecialChar)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введіть кількість чисел Фібоначчі: ");
+        int n = int.Parse(Console.ReadLine());
+
+        int a = 0, b = 1;
+
+        Console.WriteLine("Послідовність Фібоначчі:");
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write(a + " ");
+            int temp = a + b;
+            a = b;
+            b = temp;
+        }
+    }
+}
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введіть кількість відпрацьованих годин: ");
+        double hours = double.Parse(Console.ReadLine());
+
+        Console.Write("Введіть ставку за годину: ");
+        double rate = double.Parse(Console.ReadLine());
+
+        double payment = hours * rate;
+        Console.WriteLine($"Оплата за день: {payment:F2}");
+    }
+}
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введіть число: ");
+        int number = int.Parse(Console.ReadLine());
+
+        Console.WriteLine($"Таблиця множення для {number}:");
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.WriteLine($"{number} x {i} = {number * i}");
+        }
+    }
+}
+ 
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введіть число: ");
+        int number = int.Parse(Console.ReadLine());
+
+        if (IsPrime(number))
+            Console.WriteLine($"{number} є простим числом.");
+        else
+            Console.WriteLine($"{number} не є простим числом.");
+    }
+
+    static bool IsPrime(int number)
+    {
+        if (number < 2) return false;
+        for (int i = 2; i <= Math.Sqrt(number); i++)
+        {
+            if (number % i == 0) return false;
+        }
+        return true;
+    }
+}
